@@ -4,6 +4,11 @@ This plugin allows you to submit your challenge ideas to the community challenge
 In the current version, anyone can submit a challenge, but only specific roles can approve them.  
 In the current version, by default, only roles with the administrator permission can approve challenges, or the server owner.  
 
+## Links
+
+Github: https://github.com/mbos2/community-challenges  
+NPM: https://www.npmjs.com/package/community-challenges
+
 ## Installation
   
   ```bash
