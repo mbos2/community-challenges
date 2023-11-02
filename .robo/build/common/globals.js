@@ -1,5 +1,0 @@
-export const ROLES = {
-    roles: []
-};
-
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkQ6XFxQcm9qZWt0aVxcZGlzY29yZC1ib3RzXFxyb2JvLXBsdWdpbnNcXGNvbW11bml0eS1jaGFsbGVuZ2VzXFxzcmNcXGNvbW1vblxcZ2xvYmFscy50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY29uc3QgUk9MRVMgPSB7XHJcbiAgcm9sZXM6IFtdXHJcbn0iXSwibmFtZXMiOlsiUk9MRVMiLCJyb2xlcyJdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxNQUFNQSxRQUFRO0lBQ25CQyxPQUFPLEVBQUU7QUFDWCxFQUFDIn0=
