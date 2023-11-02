@@ -14,8 +14,10 @@ export const config: CommandConfig = {
 export default async (interaction: any) => {
   try {
     const role = interaction.options.get('role').value;
+    const roleSliced = role.slice(3, -1);
     const existingRoles = JSON.parse(await Flashcore.get('challenges-admin-roles'));
-    const indexToRemove = existingRoles.findIndex((item: any) => item.value === role);
+    const indexToRemove = existingRoles.findIndex((item: any) => item.value === roleSliced);
+    console.log(role, roleSliced, existingRoles, indexToRemove)
     if (indexToRemove !== -1) {
       existingRoles.splice(indexToRemove, 1);
       await Flashcore.set('challenges-admin-roles', JSON.stringify(existingRoles));
