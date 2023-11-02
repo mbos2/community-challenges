@@ -1,7 +1,5 @@
 import { Flashcore, type CommandConfig } from '@roboplay/robo.js';
-import { IGuildRoleShort, IOwner } from '../common/types.js';
 import { isAdmin } from '../utils/utils.js';
-import { ROLES } from '../common/globals.js';
 
 export const config: CommandConfig = {
   description: 'Reset challenge roles to administrators.',
@@ -23,8 +21,6 @@ export default async (interaction: any) => {
         }
       });
     }
-
-    ROLES.roles = roles;
 
     roles.push({
       ownerId: ownerId,
