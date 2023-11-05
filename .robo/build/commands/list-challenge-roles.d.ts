@@ -1,7 +1,7 @@
 import { type CommandConfig } from '@roboplay/robo.js';
-import { EmbedBuilder } from 'discord.js';
+import { ChatInputCommandInteraction, EmbedBuilder } from 'discord.js';
 export declare const config: CommandConfig;
-declare const _default: (interaction: any) => Promise<{
+declare const _default: (interaction: ChatInputCommandInteraction) => Promise<{
     embeds: EmbedBuilder[];
     ephemeral: boolean;
     content?: undefined;

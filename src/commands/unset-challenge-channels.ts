@@ -1,13 +1,15 @@
 import { Flashcore, type CommandConfig } from '@roboplay/robo.js';
+import { ChatInputCommandInteraction } from 'discord.js';
 
 export const config: CommandConfig = {
   description: 'Unsets challenge channels.',
 }
 
-export default async (interaction: any) => {
-  const channel = interaction.options.getChannel('channel');
+export default async (interaction: ChatInputCommandInteraction) => {
   try {
-    await Flashcore.set('challenges-channel', null);
+    await Flashcore.set('challenges-channel', null, {
+      namespace: interaction.guildId!
+    });
     await Flashcore.set('challenges-review-channel', null);
     return {content: `Challenges channels unset`, ephemeral: true};
   } catch (error) {

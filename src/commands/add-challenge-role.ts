@@ -1,5 +1,6 @@
 import { Flashcore, type CommandConfig } from '@roboplay/robo.js';
 import { IGuildRoleShort } from '../common/types.js';
+import { ChatInputCommandInteraction } from 'discord.js';
 
 export const config: CommandConfig = {
   description: 'Add or remove challenge roles',
@@ -13,16 +14,20 @@ export const config: CommandConfig = {
   ]
 }
 
-export default async (interaction: any) => {
+export default async (interaction: ChatInputCommandInteraction) => {
   try {
     const role = interaction.options.getRole('role');
     const roleShort: IGuildRoleShort = {
-      value: role.id,
-      name: role.name,
+      value: role!.id,
+      name: role!.name,
     }   
-    const existingRoles = JSON.parse(await Flashcore.get('challenges-admin-roles'));
+    const existingRoles = JSON.parse(await Flashcore.get('challenges-admin-roles', {
+      namespace: interaction.guildId!
+    }));
     existingRoles.push(roleShort);
-    await Flashcore.set('challenges-admin-roles', JSON.stringify(existingRoles));
+    await Flashcore.set('challenges-admin-roles', JSON.stringify(existingRoles), {
+      namespace: interaction.guildId!
+    });
 
     return {content: `Added challenge role `, ephemeral: true};
   } catch (error) {

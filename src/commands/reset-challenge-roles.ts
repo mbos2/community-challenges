@@ -1,15 +1,18 @@
 import { Flashcore, type CommandConfig } from '@roboplay/robo.js';
+import { IGuildRoleShort, IOwner } from '../common/types.js';
 import { isAdmin } from '../utils/utils.js';
+import { ChatInputCommandInteraction, GuildMember } from 'discord.js';
 
 export const config: CommandConfig = {
   description: 'Reset challenge roles to administrators.',
 }
 
-export default async (interaction: any) => {
+export default async (interaction: ChatInputCommandInteraction) => {
   try {
-    const roles: any = [];
-    const guildRoles = interaction.member.guild.roles.cache;
-    const ownerId = interaction.member.guild.ownerId;
+    const roles: (IGuildRoleShort | IOwner)[] = [];
+    const member = interaction.member as GuildMember;
+    const guildRoles = member.guild.roles.cache;
+    const ownerId = member.guild.ownerId;
 
     if (guildRoles) {
       guildRoles.forEach((role: any) => {
@@ -25,7 +28,9 @@ export default async (interaction: any) => {
     roles.push({
       ownerId: ownerId,
     })
-    await Flashcore.set('challenges-admin-roles', JSON.stringify(roles));
+    await Flashcore.set('challenges-admin-roles', JSON.stringify(roles), {
+      namespace: interaction.guildId!
+    });
     return {content: `Challenge roles reset successfully`, ephemeral: true};
   } catch (error) {
     return {content: `Error reseting challenge roles . . .`, ephemeral: true}

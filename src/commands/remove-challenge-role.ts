@@ -1,4 +1,5 @@
 import { Flashcore, type CommandConfig } from '@roboplay/robo.js';
+import { ChatInputCommandInteraction } from 'discord.js';
 
 export const config: CommandConfig = {
   description: 'Add or remove challenge roles',
@@ -11,16 +12,20 @@ export const config: CommandConfig = {
   ]
 }
 
-export default async (interaction: any) => {
+export default async (interaction: ChatInputCommandInteraction) => {
   try {
-    const role = interaction.options.get('role').value;
-    const roleSliced = role.slice(3, -1);
-    const existingRoles = JSON.parse(await Flashcore.get('challenges-admin-roles'));
+    const role = interaction.options.get('role')!.value as string;
+    const roleSliced = role?.slice(3, -1);
+    const existingRoles = JSON.parse(await Flashcore.get('challenges-admin-roles', {
+      namespace: interaction.guildId!
+    }));
     const indexToRemove = existingRoles.findIndex((item: any) => item.value === roleSliced);
-    console.log(role, roleSliced, existingRoles, indexToRemove)
+
     if (indexToRemove !== -1) {
       existingRoles.splice(indexToRemove, 1);
-      await Flashcore.set('challenges-admin-roles', JSON.stringify(existingRoles));
+      await Flashcore.set('challenges-admin-roles', JSON.stringify(existingRoles), {
+        namespace: interaction.guildId!
+      });
       return {content: `Challenge role removed `, ephemeral: true};
     }
     else {

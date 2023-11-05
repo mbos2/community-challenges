@@ -13,8 +13,8 @@
       "type": "plugin"
     },
     "type": "plugin",
-    "updatedAt": "2023-11-02T18:07:44.911Z",
-    "version": "0.9.6"
+    "updatedAt": "2023-11-05T23:41:04.516Z",
+    "version": "0.9.7"
   },
   "api": {},
   "commands": {
@@ -90,11 +90,6 @@
     "interactionCreate": [
       {
         "__path": "\\.robo\\build\\events\\interactionCreate.js"
-      }
-    ],
-    "ready": [
-      {
-        "__path": "\\.robo\\build\\events\\ready.js"
       }
     ]
   },

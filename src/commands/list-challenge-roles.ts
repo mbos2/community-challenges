@@ -1,14 +1,16 @@
 import { Flashcore, type CommandConfig } from '@roboplay/robo.js';
 import { IGuildRoleShort } from '../common/types.js';
-import { EmbedBuilder } from 'discord.js';
+import { ChatInputCommandInteraction, EmbedBuilder } from 'discord.js';
 
 export const config: CommandConfig = {
   description: 'Reset challenge roles to administrators.',
 }
 
-export default async (interaction: any) => {
+export default async (interaction: ChatInputCommandInteraction) => {
   try {
-    const roles = await Flashcore.get('challenges-admin-roles') as string;
+    const roles = await Flashcore.get('challenges-admin-roles', {
+      namespace: interaction.guildId!
+    }) as string;
     const parsed = JSON.parse(roles);
 
     const exampleEmbed = new EmbedBuilder()
