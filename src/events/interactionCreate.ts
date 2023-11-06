@@ -6,7 +6,6 @@ export default async (interaction: any) => {
 
   if (interaction.isModalSubmit()) {
     const i = interaction as ModalSubmitInteraction;
-
     if (i.customId === 'challenge-modal') {
       const reviewsChannel: string = await Flashcore.get('challenges-review-channel', {
         namespace: i.guildId!

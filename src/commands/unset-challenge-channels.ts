@@ -7,10 +7,12 @@ export const config: CommandConfig = {
 
 export default async (interaction: ChatInputCommandInteraction) => {
   try {
-    await Flashcore.set('challenges-channel', null, {
+    await Flashcore.delete('challenges-channel', {
       namespace: interaction.guildId!
     });
-    await Flashcore.set('challenges-review-channel', null);
+    await Flashcore.delete('challenges-review-channel', {
+      namespace: interaction.guildId!
+    });
     return {content: `Challenges channels unset`, ephemeral: true};
   } catch (error) {
     return {content: `Error unsetting challenges channels`, ephemeral: true}

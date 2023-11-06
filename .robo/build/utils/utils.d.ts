@@ -1,5 +1,5 @@
 import { ActionRowBuilder, ModalBuilder, GuildMember, ButtonInteraction } from 'discord.js';
-import { IGuildRoleShort, IOwner } from '../common/types';
+import { IGuildRoleShort, IOwner } from '../common/types.js';
 export declare const challengeModal: () => Promise<{
     modal: ModalBuilder;
 }>;

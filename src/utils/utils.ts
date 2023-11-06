@@ -10,7 +10,7 @@ import {
   ButtonInteraction
 } from 'discord.js';
 import { Flashcore } from '@roboplay/robo.js';
-import { IGuildRoleShort, IOwner } from '../common/types';
+import { IGuildRoleShort, IOwner } from '../common/types.js';
 
 export const challengeModal = async () => {
   const modal = new ModalBuilder()
