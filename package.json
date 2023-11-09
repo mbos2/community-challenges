@@ -1,7 +1,7 @@
 {
   "name": "community-challenges",
   "description": "A set of commands that will allow your Robo.js bot to run community challenges.",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "type": "module",
   "private": false,
   "main": ".robo/build/index.js",
