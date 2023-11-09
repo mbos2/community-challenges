@@ -1,4 +1,4 @@
-# Community Challenges plugin for Robo.js
+# Community Challenges plugin for [Robo.js](https://github.com/Wave-Play/robo.js) discord bot framework
 
 This plugin allows you to submit your challenge ideas to the community challenges directly from your Robo.js discord bot.  
 In the current version, anyone can submit a challenge, but only specific roles can approve them.  
