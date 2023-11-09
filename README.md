@@ -12,7 +12,7 @@ NPM: https://www.npmjs.com/package/community-challenges
 ## Installation
   
   ```bash
-  npm install community-challenges
+  npx robo add community-challenges
   ```
 
 ## Commands
