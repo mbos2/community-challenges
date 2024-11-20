@@ -9,7 +9,7 @@ import {
   GuildMember,
   ButtonInteraction
 } from 'discord.js';
-import { Flashcore } from '@roboplay/robo.js';
+import { Flashcore } from 'robo.js';
 import { IGuildRoleShort, IOwner } from '../common/types.js';
 
 export const challengeModal = async () => {

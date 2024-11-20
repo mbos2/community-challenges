@@ -1,4 +1,4 @@
-import { Flashcore, type CommandConfig } from '@roboplay/robo.js';
+import { Flashcore, type CommandConfig } from 'robo.js';
 import { IGuildRoleShort, IOwner } from '../common/types.js';
 import { isAdmin } from '../utils/utils.js';
 import { ChatInputCommandInteraction, GuildMember } from 'discord.js';

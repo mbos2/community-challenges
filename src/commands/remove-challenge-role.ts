@@ -1,4 +1,4 @@
-import { Flashcore, type CommandConfig } from '@roboplay/robo.js';
+import { Flashcore, type CommandConfig } from 'robo.js';
 import { ChatInputCommandInteraction } from 'discord.js';
 
 export const config: CommandConfig = {

@@ -5,16 +5,17 @@
       "clientOptions": {
         "intents": [
           "Guilds",
-          "GuildMessages",
-          "MessageContent"
+          "GuildMessages"
         ]
       },
       "plugins": [],
       "type": "plugin"
     },
+    "language": "typescript",
+    "mode": "production",
     "type": "plugin",
-    "updatedAt": "2023-11-09T11:58:01.293Z",
-    "version": "0.9.7"
+    "updatedAt": "2024-11-20T16:03:52.507Z",
+    "version": "0.10.25"
   },
   "api": {},
   "commands": {

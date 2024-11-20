@@ -1,4 +1,4 @@
-import { Flashcore } from '@roboplay/robo.js';
+import { Flashcore } from 'robo.js';
 import { challengeReviewButtonComponent, setInitialChallengeRolesIfNotExisting, userHasChallengeReviewPermission } from '../utils/utils.js';
 import { ButtonInteraction, GuildMember, ModalSubmitInteraction } from 'discord.js';
 
