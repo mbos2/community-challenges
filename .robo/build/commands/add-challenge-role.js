@@ -17,9 +17,14 @@ export default (async (interaction)=>{
             value: role.id,
             name: role.name
         };
-        const existingRoles = JSON.parse(await Flashcore.get('challenges-admin-roles', {
+        let existingRoles = await Flashcore.get('challenges-admin-roles', {
             namespace: interaction.guildId
-        }));
+        });
+        if (!existingRoles) {
+            existingRoles = [];
+        } else {
+            existingRoles = JSON.parse(existingRoles);
+        }
         existingRoles.push(roleShort);
         await Flashcore.set('challenges-admin-roles', JSON.stringify(existingRoles), {
             namespace: interaction.guildId

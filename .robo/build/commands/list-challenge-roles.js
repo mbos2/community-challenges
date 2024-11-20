@@ -8,6 +8,12 @@ export default (async (interaction)=>{
         const roles = await Flashcore.get('challenges-admin-roles', {
             namespace: interaction.guildId
         });
+        if (!roles) {
+            return {
+                content: 'Could not find any roles to list',
+                ephemeral: true
+            };
+        }
         const parsed = JSON.parse(roles);
         const exampleEmbed = new EmbedBuilder().setColor(0x0099FF).setTitle('Challenge Admin Roles').setTimestamp();
         parsed && parsed.forEach((role)=>{

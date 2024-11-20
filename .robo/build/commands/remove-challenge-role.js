@@ -16,6 +16,12 @@ export default (async (interaction)=>{
         const existingRoles = JSON.parse(await Flashcore.get('challenges-admin-roles', {
             namespace: interaction.guildId
         }));
+        if (!existingRoles) {
+            return {
+                content: `Could not find a role to remove`,
+                ephemeral: true
+            };
+        }
         const indexToRemove = existingRoles.findIndex((item)=>item.value === roleSliced);
         if (indexToRemove !== -1) {
             existingRoles.splice(indexToRemove, 1);
