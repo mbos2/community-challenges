@@ -21,9 +21,14 @@ export default async (interaction: ChatInputCommandInteraction) => {
       value: role!.id,
       name: role!.name,
     }   
-    const existingRoles = JSON.parse(await Flashcore.get('challenges-admin-roles', {
+    let existingRoles = JSON.parse(await Flashcore.get('challenges-admin-roles', {
       namespace: interaction.guildId!
     }));
+
+    if (!existingRoles) {
+      existingRoles = [];
+    }
+    
     existingRoles.push(roleShort);
     await Flashcore.set('challenges-admin-roles', JSON.stringify(existingRoles), {
       namespace: interaction.guildId!

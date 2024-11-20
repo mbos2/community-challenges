@@ -11,6 +11,10 @@ export default async (interaction: ChatInputCommandInteraction) => {
     const roles = await Flashcore.get('challenges-admin-roles', {
       namespace: interaction.guildId!
     }) as string;
+
+    if (!roles) {
+      return {content: 'Could not find any roles to list', ephemeral: true};
+    }
     const parsed = JSON.parse(roles);
 
     const exampleEmbed = new EmbedBuilder()
